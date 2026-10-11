@@ -91,6 +91,7 @@ app.post('/sendemail', async (req, res) => {
     try {
         const credData = await credential.find()
         const creds = credData[0].toJSON()
+        console.log("Fields found in DB:", Object.keys(creds))
 
         const oAuth2Client = new google.auth.OAuth2(
             creds.clientId,
